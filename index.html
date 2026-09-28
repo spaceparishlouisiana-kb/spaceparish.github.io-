@@ -822,6 +822,8 @@
 // first) at the top. It doesn't have to be strict date order; Starbase/
 // Tee-Lon stories are pinned above the site's own housekeeping posts below.
 const NEWS_ITEMS = [
+  { date: "September 28, 2026", title: "Starship reaches orbit for the first time", tag: "starbase",
+    excerpt: "SpaceX's Starship lifted off from Starbase, Texas at about 7:48 a.m. Central on Flight 14 and made it to orbit for the first time. It released 26 Starlink satellites, then SpaceX brought it home early after one lap of the planet, instead of the six planned, because an engine shut down early during the climb. The ship splashed down in the northern Pacific, and the Super Heavy booster came down in the Gulf. This is the same rocket system slated to fly from Pecan Island. Watch the replay under Video coverage on the News page." },
   { date: "August 25, 2026", title: "It's official: Starbase Louisiana is happening", tag: "starbase",
     excerpt: "SpaceX and Gov. Jeff Landry confirmed a $100 billion spaceport on 125,000 acres near Pecan Island — 10 launch pads, a deep-water port, and thousands of jobs. Construction is targeted for 2027, with the first launch as soon as 2029. Vermilion Parish just became the center of the American space program." },
   { date: "August 14, 2026", title: "Was that Tee-Lon's jet in Lafayette?", tag: "teelon",
@@ -841,6 +843,9 @@ const NEWS_ITEMS = [
 // To add one: grab the video ID from its YouTube URL (the part after
 // "v="), then add a row below. See the SOP for the full how-to.
 const VIDEO_ITEMS = [
+  { id: "CxHNK4UeVP4", title: "Replay: SpaceX Starship Reaches Orbit for 1st Time, Splashes Down and Explodes",
+    source: "VideoFromSpace (Space.com)", tag: "starbase",
+    note: "Flight 14, September 28, 2026: the full launch, the first trip to orbit, and the splashdown." },
   { id: "oMe-6nLUpyM", title: "SpaceX and Louisiana Announce Starbase Louisiana",
     source: "Space SPAN (Science Policy and News)", tag: "starbase",
     note: "Coverage of the August 25, 2026 announcement event." },
@@ -890,8 +895,8 @@ const CURRENT_STAGE = 0; // 0 = "Announced" is the current/most recent completed
 // late Sept 2026, per public flight records: 13 flights, 8 successes,
 // 5 failures, spanning April 2023 to July 2026.
 const STARSHIP_LOG = {
-  total: 13, success: 8, fail: 5,
-  asOf: "current through Flight 13, July 24, 2026",
+  total: 14, success: 9, fail: 5,
+  asOf: "current through Flight 14, Sept 28, 2026 (first flight to reach orbit)",
 };
 // Starts at zero on purpose — Starbase Louisiana's first launch is
 // targeted as soon as 2029. Update this the day it actually happens.
