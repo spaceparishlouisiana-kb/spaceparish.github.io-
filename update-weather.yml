@@ -1,0 +1,37 @@
+name: Update weather forecast discussion
+
+on:
+  schedule:
+    # Runs nightly at 06:01 UTC (roughly 12:01/1:01am Central, depending on DST)
+    - cron: '1 6 * * *'
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write   # needed so the workflow can commit the updated index.html back to the repo
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run the weather update script
+        run: node scripts/update-weather.js
+
+      - name: Commit and push if index.html changed
+        run: |
+          git config user.name "SpaceParish Weather Bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- index.html; then
+            git add index.html
+            git commit -m "Auto-update weather forecast discussion"
+            git push
+          else
+            echo "No change to index.html — nothing to commit."
+          fi
